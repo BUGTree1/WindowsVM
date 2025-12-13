@@ -21,19 +21,33 @@ linux.iso - (optional) linux iso that will be used when copying files
 
 ## Usage
 
-To run the windows installer run:
+### To install windows 
+
+First run to open the windows installer:
 
 ```console
 $ ./all-install.sh
 ```
 
-To use run already installed windows run:
+Now go to repair my pc and open cmd and run the command:
+
+```console
+$ setupprep.exe /product server
+```
+
+Proceed with the installation.
+
+### To use run already installed windows 
+
+Run:
 
 ```console
 $ ./all.sh
 ```
 
-To copy files from virt folder (run a linux vm with the folder as disk and windows disk):
+### To copy files from a folder to the VM
+
+Run a linux vm with the `virt` folder as a disk and the windows disk:
 
 ```console
 $ ./mount.sh
