@@ -21,7 +21,13 @@ linux.iso - (optional) linux iso that will be used when copying files
 
 ## Usage
 
-To use run:
+To run the windows installer run:
+
+```console
+$ ./all-install.sh
+```
+
+To use run already installed windows run:
 
 ```console
 $ ./all.sh
