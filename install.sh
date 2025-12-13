@@ -6,7 +6,7 @@ OVMF_CODE="./OVMF_CODE.fd"
 OVMF_VARS="./OVMF_VARS.fd"
 
 qemu-system-x86_64 \
-    -boot d \
+    -boot menu=on \
     -machine q35 \
     -enable-kvm \
     -cpu host \
