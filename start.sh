@@ -31,7 +31,7 @@ qemu-system-x86_64 \
     -device qemu-xhci,id=usb \
     -device usb-tablet,bus=usb.0 \
     -netdev user,id=net0 \
-    -device virtio-net-pci,netdev=net0 \
+    -device virtio-net-pci,netdev=net0,rombar=0 \
     -D qemu.log \
     -d guest_errors \
     -monitor unix:/tmp/qemu-monitor-socket,server,nowait \
