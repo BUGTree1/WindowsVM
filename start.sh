@@ -18,9 +18,7 @@ qemu-system-x86_64 \
     -drive file="$DISK_IMG",format=qcow2,if=virtio \
     -drive if=pflash,format=raw,readonly=on,file="$OVMF_CODE" \
     -drive if=pflash,format=raw,file="$OVMF_VARS" \
-    -device virtio-vga-gl \
-    -display egl-headless,rendernode=/dev/dri/renderD129 \
-    -vga none \
+    -device virtio-gpu-rutabaga-pci,gfxstream-vulkan=on,cross-domain=on,hostmem=1G \
     -spice port=5900,addr=127.0.0.1,disable-ticketing=on \
     -device virtio-serial-pci \
     -device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 \
@@ -29,7 +27,8 @@ qemu-system-x86_64 \
     -device ich9-intel-hda,id=sound0 \
     -device hda-output,audiodev=audio0 \
     -device qemu-xhci,id=usb \
-    -device usb-tablet,bus=usb.0 \
+    -device virtio-tablet-pci \
+    -device virtio-keyboard-pci \
     -netdev user,id=net0 \
     -device virtio-net-pci,netdev=net0,rombar=0 \
     -D qemu.log \

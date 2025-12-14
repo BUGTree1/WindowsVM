@@ -5,9 +5,8 @@ WIN11_ISO="windows11.iso"
 OVMF_CODE="./OVMF_CODE.fd"
 OVMF_VARS="./OVMF_VARS.fd"
 
-
 qemu-system-x86_64 \
-    -boot order=d \
+    -boot menu=on \
     -machine q35 \
     -enable-kvm \
     -cpu host \
@@ -24,7 +23,6 @@ qemu-system-x86_64 \
     -spice port=5900,addr=127.0.0.1,disable-ticketing=on \
     -device virtio-serial-pci \
     -device virtserialport,chardev=spicechannel0,name=com.redhat.spice.0 \
-    -chardev spicevmc,id=spicechannel0,name=vdagent \
     -audiodev spice,id=audio0 \
     -device ich9-intel-hda,id=sound0 \
     -device hda-output,audiodev=audio0 \
@@ -32,6 +30,7 @@ qemu-system-x86_64 \
     -device usb-tablet,bus=usb.0 \
     -netdev user,id=net0 \
     -device virtio-net-pci,netdev=net0,rombar=0 \
+    -chardev spicevmc,id=spicechannel0,name=vdagent \
     -D qemu.log \
     -d guest_errors \
     -monitor unix:/tmp/qemu-monitor-socket,server,nowait \
