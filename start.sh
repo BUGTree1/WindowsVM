@@ -27,7 +27,7 @@ qemu-system-x86_64 \
     -device ich9-intel-hda,id=sound0 \
     -device hda-output,audiodev=audio0 \
     -device qemu-xhci,id=usb \
-    -device virtio-tablet-pci \
+    -device virtio-mouse-pci \
     -device virtio-keyboard-pci \
     -netdev user,id=net0 \
     -device virtio-net-pci,netdev=net0,rombar=0 \
